@@ -1,5 +1,6 @@
-// need array to hold all of the images needed to play game
-// since it is a matching game, array contains 2 copies of each image
+// array for imgs of each card, 2 of each because it is a matching game
+// this array will be shuffled at the start of the game
+
 const cardFronts = [
     "public/images/apple.png",
     "public/images/cherry.png",
@@ -23,10 +24,10 @@ const cardFronts = [
     "public/images/ghost-chase.png"
 ]
 
-console.log(cardFronts);
 
-// array for cards that are opened (or flipped) as the game is played
-// array starts out empty
+// array to store the opened cards as the game plays out
+
+let openedCards = [];
 
 // **********************
 // query selector for the cards div and all of the cards
