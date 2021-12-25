@@ -24,10 +24,29 @@ const cardFronts = [
     "public/images/ghost-chase.png"
 ]
 
+// DO NOT shuffle on load. makes it a headache to restart the game without page refresh.
+// create function(s) that begin game when start is clicked and resets to starting state on reset click
+
 
 // array to store the opened cards as the game plays out
 
 let openedCards = [];
+
+// function to shuffle cards --- call this function on press of the start button
+
+function shuffleCards(array) {
+
+    let currentIndex = array.length, tempValue, randomNumber;
+
+    while (currentIndex !== 0) {
+        randomNumber = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        tempValue = array[currentIndex];
+        array[currentIndex] = array[randomNumber];
+        array[randomNumber] = tempValue;
+    }
+    return array;
+}
 
 // **********************
 // query selector for the cards div and all of the cards

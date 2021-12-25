@@ -8,11 +8,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="header-img"></div>
+    <div class="headerImg"></div>
 
-    <img src="public/images/apple.png" class="apple-img" />
+    <nav>
+      <form class="playerName">
+        <label for="name">Name</label>
+        <input type="text" id="name" value="" />
+      </form>
 
-    <nav></nav>
+      <ul class="naviBar">
+        <div>
+          <li>
+            <button type="button" name="startTimer" id="start">Start</button>
+          </li>
+        </div>
+        <div>
+          <li>
+            <label id="seconds">00</label>
+          </li>
+        </div>
+      </ul>
+    </nav>
+
+    <section class="cards">
+      <img class="card" src="public/images/card-back.jpeg" data-index="0" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="1" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="2" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="3" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="4" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="5" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="6" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="7" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="8" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="9" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="10" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="11" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="12" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="13" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="14" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="15" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="16" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="17" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="18" />
+      <img class="card" src="public/images/card-back.jpeg" data-index="19" />
+    </section>
+
+    <footer>
+      <button type="button" name="newGame" id="newGame">New Game</button>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
