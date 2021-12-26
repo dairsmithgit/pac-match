@@ -80,7 +80,7 @@ function showCards(card) {
 // FUNCTIONS FOR GAME
 // **********************
 // function to shuffle  *DONE*
-// function to show positions of cards at the start of the game
+// function to show positions of cards at the start of the game *DONE*
 // function comparing two flipped cards to determine match or no match
 // function for things to do if the cards match
 // function to return cards to flipped over state (doable within the compare function?)
