@@ -29,11 +29,18 @@ const cardFronts = [
 
 
 // array to store the opened cards as the game plays out
-
 let openedCards = [];
 
-// function to shuffle cards --- call this function on press of the start button
+// keeps track of pairs found, determines when the game is finished
+let matchCount = 0;
 
+// selects the card container for manipulation
+const cardsContainer = document.querySelector('.cards');
+
+// variable that selects and stores all indiv. cards for manipulation
+let cards = document.querySelectorAll('.card');
+
+// function to shuffle cards --- call this function on press of the start button
 function shuffleCards(array) {
 
     let currentIndex = array.length, tempValue, randomNumber;
@@ -48,6 +55,20 @@ function shuffleCards(array) {
     return array;
 }
 
+function showCards(card) {
+    for (card of cards) {
+        card.src = cardFronts[card.getAttribute('data-index')];
+    }
+    setTimeout(() => {
+        for (card of cards) {
+            card.classList.remove('flipCard');
+            card.src = 'public/images/card-back.jpeg';
+            setTimeout(() => {
+            }, 100);
+        }
+    }, 3000);
+}
+
 // **********************
 // query selector for the cards div and all of the cards
 
@@ -58,7 +79,7 @@ function shuffleCards(array) {
 // **********************
 // FUNCTIONS FOR GAME
 // **********************
-// function to shuffle
+// function to shuffle  *DONE*
 // function to show positions of cards at the start of the game
 // function comparing two flipped cards to determine match or no match
 // function for things to do if the cards match
