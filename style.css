@@ -51,4 +51,5 @@ body {
 
 /* class added to the card if it is matched during the game */
 .matched {
+  visibility: hidden;
 }

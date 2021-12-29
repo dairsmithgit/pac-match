@@ -109,6 +109,7 @@ function flipCardBack() {
     }, 1500);
     setTimeout(() => {
         for (card of openedCards) {
+            card.src = 'public/images/card-back.jpeg'
             card.classList.remove('flipCardBack');
         }
     }, 1530);
