@@ -121,6 +121,31 @@ function flipCardBack() {
 }
 
 // adding listener to cards in the cardDiv which will handle class changes and calling compare function
+cardsContainer.addEventListener('click', (e) => {
+    // gets index from data-index attribute on imgs in html
+    let index = e.target.getAttribute('data-index');
+    // looks through array using the data-index from the clicked element
+    let src = cardFronts[index];
+
+    if (e.target.className === 'card') {
+        if (openedCards.length === 2) {
+            return;
+        }
+        // toggle class to simulate flipping
+        e.target.classList.toggle('flipCard');
+        // delay img change until after flip animation
+        // replaces src with new img
+        setTimeout(() => {
+            e.target.src = src;
+        }, 100)
+        openedCards.push(e.target);
+        setTimeout(() => {
+            if (openedCards.length === 2) {
+                return compareCards();
+            }
+        }, 200)
+    }
+});
 
 // **********************
 
