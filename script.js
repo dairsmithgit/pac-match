@@ -40,6 +40,21 @@ const cardsContainer = document.querySelector('.cards');
 // variable that selects and stores all indiv. cards for manipulation
 let cards = document.querySelectorAll('.card');
 
+// getting the start button from html to variable
+const start = document.getElementById('start');
+
+// variable to keep track of total seconds per game
+var gameTime = 0;
+
+// creating variable for the interval
+var myInterval = 0;
+
+// leaderboard to keep track of the top times for that session
+let leaderboard = [];
+
+// variable that will store the players initials (3 initial name like old school pac-man)
+let playerName = document.getElementById('name');
+
 // function to shuffle cards --- call this function on press of the start button
 function shuffleCards(array) {
 
@@ -53,6 +68,22 @@ function shuffleCards(array) {
         array[randomNumber] = tempValue;
     }
     return array;
+}
+
+// event listener on the start game button to begin the game, shows shuffled cards for 3 seconds
+start.addEventListener("click", (e) => {
+    showCards(cardFronts);
+    gameTime = 0;
+
+    setTimeout(() => {
+        myInterval = setInterval(setTime, 1000);
+        playerName = playerName.value;
+    }, 3000);
+});
+
+// function to add seconds whenever the interval is set to call this function
+function setTime() {
+    ++gameTime;
 }
 
 // function to show the cards at the beginning of the game
@@ -148,6 +179,13 @@ cardsContainer.addEventListener('click', (e) => {
     }
 });
 
+// function for things to do when the game is over
+function gameOver() {
+    clearInterval(myInterval);
+    // message 'congrats you completed all matches in 'x' seconds!' to player
+    // show new game button?
+}
+
 // **********************
 
 // instead of the matched cards added to a div with insertHTML (bad practice)
@@ -156,8 +194,12 @@ cardsContainer.addEventListener('click', (e) => {
 
 // look up how to replace/change elements of css within the same class using javascript
 
+
+
+
+
 // **********************
-// FUNCTIONS FOR GAME
+// TO DO LIST
 // **********************
 // function to shuffle  *DONE*
 // function to show positions of cards at the start of the game *DONE*
@@ -165,7 +207,14 @@ cardsContainer.addEventListener('click', (e) => {
 // function for things to do if the cards match *DONE*
 // function to return cards to flipped over state (doable within the compare function?) *DONE*
 // function to reset the opened cards array to empty *DISCARDED*
-// function for things to do when the game is finished
+// function for things to do when the game is finished *STARTED*
+// function to set the counter for the total seconds in game
+// constructor for leaderboard entry
+// leaderboard html
+// function to add score/class to the leaderboard
+
+
+
 
 
 // NOTABLE CHANGES TO THIS APP COMPARED TO EARLIER ITERATION FROM GC BOOTCAMP
