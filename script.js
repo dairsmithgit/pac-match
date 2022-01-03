@@ -212,6 +212,7 @@ function gameOver() {
 // constructor for leaderboard entry
 // leaderboard html
 // function to add score/class to the leaderboard
+// add the img elements in HTML to reveal icons as matches are made
 
 
 
