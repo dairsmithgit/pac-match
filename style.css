@@ -33,6 +33,10 @@ body {
   border-radius: 2px;
 }
 
+.badgeContainer {
+  display: flex;
+}
+
 /* flips and animates */
 .flipCard {
   transform: scale(0.97);

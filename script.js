@@ -213,6 +213,7 @@ function gameOver() {
 // leaderboard html
 // function to add score/class to the leaderboard
 // add the img elements in HTML to reveal icons as matches are made
+    // align badges next to the cards
 // get rid of the bottom margin on divs around the imgs in html
 
 
