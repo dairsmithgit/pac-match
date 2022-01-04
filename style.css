@@ -1,5 +1,9 @@
 /* dimension of each card is: height is 1.4 * the given width of the card */
 
+* {
+  font-family: "Press Start 2p", sans-serif;
+}
+
 body {
   background-color: #000;
   color: #fff;
@@ -35,7 +39,7 @@ body {
   transition: transform 0.5s;
   transform: rotateY(180deg);
   position: relative;
-  transform: scale(1.2);
+  transform: scale(1);
   z-index: 10;
 }
 

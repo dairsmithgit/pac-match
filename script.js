@@ -140,7 +140,7 @@ function flipCardBack() {
     }, 1500);
     setTimeout(() => {
         for (card of openedCards) {
-            card.src = 'public/images/card-back.jpeg'
+            card.src = 'public/images/card-neon.png'
             card.classList.remove('flipCardBack');
         }
     }, 1530);
@@ -213,6 +213,7 @@ function gameOver() {
 // leaderboard html
 // function to add score/class to the leaderboard
 // add the img elements in HTML to reveal icons as matches are made
+// get rid of the bottom margin on divs around the imgs in html
 
 
 
@@ -228,3 +229,11 @@ function gameOver() {
 
 // considered setting up the ifMatch and ifNotMatch cases inside of the compare function, but didn't
     // want the compare function to get messy and to be doing more than it needed to
+
+
+// FUTURE THINGS
+// **************
+// add backend
+    // send username (initials) and time to complete to database to store
+    // order all of the database entries by the lowest number/time
+    // serve the database entries as a top 10 of all time leaderboard in the app
