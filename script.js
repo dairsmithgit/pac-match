@@ -49,6 +49,9 @@ var gameTime = 0;
 // creating variable for the interval
 var myInterval = 0;
 
+// variable to make changes to seconds display in html
+var secondsCounter = document.getElementById("seconds");
+
 // leaderboard to keep track of the top times for that session
 let leaderboard = [];
 
@@ -74,6 +77,7 @@ function shuffleCards(array) {
 start.addEventListener("click", (e) => {
     showCards(cardFronts);
     gameTime = 0;
+    start.disabled = true;
 
     setTimeout(() => {
         myInterval = setInterval(setTime, 1000);
@@ -84,6 +88,7 @@ start.addEventListener("click", (e) => {
 // function to add seconds whenever the interval is set to call this function
 function setTime() {
     ++gameTime;
+    secondsCounter.innerHTML = gameTime;
 }
 
 // function to show the cards at the beginning of the game
@@ -94,7 +99,7 @@ function showCards(card) {
     setTimeout(() => {
         for (card of cards) {
             card.classList.remove('flipCard');
-            card.src = 'public/images/card-back.jpeg';
+            card.src = 'public/images/card-neon.png';
             setTimeout(() => {
             }, 100);
         }
@@ -179,6 +184,12 @@ cardsContainer.addEventListener('click', (e) => {
     }
 });
 
+// constructor for leaderboard entries
+function NewScore(name, time) {
+    this.name = name;
+    this.time = time;
+}
+
 // function for things to do when the game is over
 function gameOver() {
     clearInterval(myInterval);
@@ -208,13 +219,16 @@ function gameOver() {
 // function to return cards to flipped over state (doable within the compare function?) *DONE*
 // function to reset the opened cards array to empty *DISCARDED*
 // function for things to do when the game is finished *STARTED*
-// function to set the counter for the total seconds in game
-// constructor for leaderboard entry
+// function to set the counter for the total seconds in game *DONE*
+// constructor for leaderboard entry *DONE*
 // leaderboard html
 // function to add score/class to the leaderboard
 // add the img elements in HTML to reveal icons as matches are made
     // align badges next to the cards
 // get rid of the bottom margin on divs around the imgs in html
+// disable the start button once clicked for the duration of the game *STARTED*
+    // stops the counter from counting too many times
+    // finish by making 'new game' remove the disabled attribute
 
 
 

@@ -25,12 +25,12 @@ body {
 }
 
 .card {
-  background-color: blue;
+  background-color: #000;
   height: 112px;
   width: 80px;
-  padding: 2px;
   margin: 2px;
   border-radius: 2px;
+  border: 2px solid blue;
 }
 
 .badgeContainer {
