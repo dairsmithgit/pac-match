@@ -58,6 +58,12 @@ let leaderboard = [];
 // variable that will store the players initials (3 initial name like old school pac-man)
 let playerName = document.getElementById('name');
 
+// variable to add class to modal
+const modal = document.querySelector('.modalBackground');
+
+// variable to set conditions on newgame button
+const newGame = document.getElementById('newGame');
+
 // function to shuffle cards --- call this function on press of the start button
 function shuffleCards(array) {
 
@@ -75,6 +81,7 @@ function shuffleCards(array) {
 
 // event listener on the start game button to begin the game, shows shuffled cards for 3 seconds
 start.addEventListener("click", (e) => {
+    shuffleCards(cardFronts);
     showCards(cardFronts);
     gameTime = 0;
     start.disabled = true;
@@ -127,7 +134,8 @@ function matched(card) {
         }
     }, 1500);
 
-    if (matchCount === 9) {
+    if (matchCount === 10) {
+        gameOver();
         // game over function
     }
     setTimeout(() => {
@@ -193,9 +201,18 @@ function NewScore(name, time) {
 // function for things to do when the game is over
 function gameOver() {
     clearInterval(myInterval);
+    modal.classList.add('modalActive');
     // message 'congrats you completed all matches in 'x' seconds!' to player
-    // show new game button?
 }
+
+// function to reset conditions needed for new game
+newGame.addEventListener('click', (e) => {
+    flipCardBack();
+    matchCount = 0;
+    modal.classList.remove('modalActive');
+    start.disabled = false;
+    // cards do not appear after newGame, timer works
+});
 
 // **********************
 
@@ -230,10 +247,17 @@ function gameOver() {
     // stops the counter from counting too many times
     // finish by making 'new game' remove the disabled attribute
 
+// **********************
+// MODAL for game finish
+// **********************
+// appears once all matches are made
+// message
+    // "congrats this.name" from constructor
+    // "you completed all matches in this.time seconds" from constructor
+// 'new game' button at bottom
+    //
 
-
-
-
+// **************************************************************************
 // NOTABLE CHANGES TO THIS APP COMPARED TO EARLIER ITERATION FROM GC BOOTCAMP
 // **************************************************************************
 // nothing inserting HTML, just to keep away from the practice
@@ -245,7 +269,7 @@ function gameOver() {
 // considered setting up the ifMatch and ifNotMatch cases inside of the compare function, but didn't
     // want the compare function to get messy and to be doing more than it needed to
 
-
+// **************
 // FUTURE THINGS
 // **************
 // add backend
