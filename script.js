@@ -2,26 +2,39 @@
 // this array will be shuffled at the start of the game
 
 const cardFronts = [
-    "public/images/apple.png",
     "public/images/cherry.png",
     "public/images/strawberry.png",
+    "public/images/apple.png",
     "public/images/orange.png",
-    "public/images/red-ghost.png",
-    "public/images/pink-ghost.png",
-    "public/images/blue-ghost.png",
     "public/images/orange-ghost.png",
-    "public/images/pacman.png",
+    "public/images/pink-ghost.png",
+    "public/images/red-ghost.png",
+    "public/images/blue-ghost.png",
     "public/images/ghost-chase.png",
-    "public/images/apple.png",
+    "public/images/pacman.png",
     "public/images/cherry.png",
     "public/images/strawberry.png",
+    "public/images/apple.png",
     "public/images/orange.png",
-    "public/images/red-ghost.png",
-    "public/images/pink-ghost.png",
-    "public/images/blue-ghost.png",
     "public/images/orange-ghost.png",
-    "public/images/pacman.png",
-    "public/images/ghost-chase.png"
+    "public/images/pink-ghost.png",
+    "public/images/red-ghost.png",
+    "public/images/blue-ghost.png",
+    "public/images/ghost-chase.png",
+    "public/images/pacman.png"
+]
+
+const cardBadges = [
+    "public/images/cherry.png",
+    "public/images/strawberry.png",
+    "public/images/apple.png",
+    "public/images/orange.png",
+    "public/images/orange-ghost.png",
+    "public/images/pink-ghost.png",
+    "public/images/red-ghost.png",
+    "public/images/blue-ghost.png",
+    "public/images/ghost-chase.png",
+    "public/images/pacman.png"
 ]
 
 // DO NOT shuffle on load. makes it a headache to restart the game without page refresh.
@@ -39,6 +52,21 @@ const cardsContainer = document.querySelector('.cards');
 
 // variable that selects and stores all indiv. cards for manipulation
 let cards = document.querySelectorAll('.card');
+
+// variables to store badges so we may apply classes
+
+let badges = document.querySelectorAll('.badge');
+
+let badge1 = document.querySelectorAll('.badge1');
+let badge2 = document.querySelectorAll('.badge2');
+let badge3 = document.querySelectorAll('.badge3');
+let badge4 = document.querySelectorAll('.badge4');
+let badge5 = document.querySelectorAll('.badge5');
+let badge6 = document.querySelectorAll('.badge6');
+let badge7 = document.querySelectorAll('.badge7');
+let badge8 = document.querySelectorAll('.badge8');
+let badge9 = document.querySelectorAll('.badge9');
+let badge10 = document.querySelectorAll('.badge10');
 
 // getting the start button from html to variable
 const start = document.getElementById('start');
@@ -89,6 +117,9 @@ start.addEventListener("click", (e) => {
     setTimeout(() => {
         myInterval = setInterval(setTime, 1000);
         playerName = playerName.value;
+        for (badge of badges) {
+            badge.classList.add('badgeHidden');
+        }
     }, 3000);
 });
 
@@ -118,6 +149,8 @@ function compareCards() {
     let card1 = openedCards[0];
     let card2 = openedCards[1];
 
+    console.log(openedCards);
+
     if (cardFronts[card1.getAttribute('data-index')] === cardFronts[card2.getAttribute('data-index')]) {
         return matched(cardFronts[card1.getAttribute('data-index')]);
     } else {
@@ -125,9 +158,23 @@ function compareCards() {
     }
 }
 
+// function to compare the matched cards to badges to find correct badge
+// does not remove class in current state
+// fix: 
+function compareBadges() {
+    let card1 = openedCards[0];
+
+    if (cardFronts[card1.getAttribute('data-index')] === "public/images/cherry.png") {
+        badge1.classList.remove('badgeHidden');
+    } else if () {
+        // continue for other badges
+    }
+}
+
 // function defines what to do when the card1/card2 attributes match (cards are a matching pair)
 function matched(card) {
     matchCount++;
+    compareBadges();
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
@@ -243,24 +290,24 @@ newGame.addEventListener('click', (e) => {
 // add the img elements in HTML to reveal icons as matches are made
     // align badges next to the cards
 // get rid of the bottom margin on divs around the imgs in html
-// disable the start button once clicked for the duration of the game *STARTED*
+// disable the start button once clicked for the duration of the game *DONE*
     // stops the counter from counting too many times
     // finish by making 'new game' remove the disabled attribute
 
 // **********************
 // MODAL for game finish
 // **********************
-// appears once all matches are made
+// appears once all matches are made *DONE*
 // message
     // "congrats this.name" from constructor
     // "you completed all matches in this.time seconds" from constructor
-// 'new game' button at bottom
+// 'new game' button at bottom *DONE*
     //
 
 // **************************************************************************
 // NOTABLE CHANGES TO THIS APP COMPARED TO EARLIER ITERATION FROM GC BOOTCAMP
 // **************************************************************************
-// nothing inserting HTML, just to keep away from the practice
+// minimal inserting HTML, just to keep away from the practice
     // instead, reveal elements using css that accomplish the same visual objective for the user
         // (showing which pairs are removed from the board so player can keep track)
 

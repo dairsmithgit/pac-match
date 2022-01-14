@@ -62,6 +62,10 @@ body {
   visibility: hidden;
 }
 
+.badgeHidden {
+  visibility: hidden;
+}
+
 /* CSS for the modal */
 .modalBackground {
   position: fixed;
